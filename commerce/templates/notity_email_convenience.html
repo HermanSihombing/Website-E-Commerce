@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/pricing.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+
+
+    <div class="d-flex" id="wrapper">
+        <div class="container-fluid col-md-12 text-center">
+
+            <table class="" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0px auto !important;padding:0;width:100%;" bgcolor="#F2F4F6">
+        <tr>
+            <td align="center" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                <table class="" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;">
+                    <tr>
+                        <td class="yiv8543789573email-masthead" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;padding:25px 0;" align="center">
+                            <h3>Media Belajarku</h3>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="yiv8543789573email-body" width="100%" style="border-bottom-color:#EDEFF2;border-bottom-style:solid;border-bottom-width:1px;border-top-color:#EDEFF2;border-top-style:solid;border-top-width:0;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;" bgcolor="">
+                            <table class="" align="center" width="570" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0 auto;padding:0;width:570px;" bgcolor="#FFFFFF">
+
+                                <tr>
+                                    <td class="yiv8543789573content-cell" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;padding:35px;">
+<h1 style="color:#2F3133;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:16px;font-weight:normal;margin-top:0;" align="left">Hi, {{ nama }}</h1>
+<p style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:1.5em;margin-top:0;" align="left">Anda baru saja berhasil melakukan pemesanan pada <strong>Media Belajarku</strong></p>
+
+        <table class="yiv8543789573discount" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:1px dashed red;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:15px;width:100%;" bgcolor="#f2dede">
+          <tr>
+            <td align="left" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+              <p style="font-size:12px;">
+                <strong>PENTING DIBACA SEBELUM MELAKUKAN PEMBAYARAN:</strong>
+                <ol>
+                  <li style="font-size:13px;">Kode pembayaran berlaku sampai dengan <b>{{ expired }}</b>.</li>
+                  <li style="font-size:13px;">Kode Pembayaran ini hanya dapat digunakan untuk 1 kali transaksi.</li>
+                  <li style="font-size:13px;">Simpan struk pembayaran sebagai bukti transaksi.</li>
+                  <li style="font-size:13px;">Jika sudah melakukan pembayaran tidak perlu melakukan konfirmasi karena sudah terkonfirmasi otomatis.</li>
+                 </ol>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+            <p style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:1.5em;margin-top:25px;margin-bottom:25px;" align="left">Silakan lakukan transfer ke no rekening berikut:</p>
+
+            <table class="yiv8543789573purchase" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;padding:15px;" bgcolor="#F2F4F6">
+
+              <tr>
+                <td colspan="2" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                  <table class="yiv8543789573purchase_content" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;">
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Pembayaran melalui</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;border-bottom:1px dashed #e3e3e3;" align="right">{{ paymentChannel }}</td>
+                    </tr>
+
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Kode Pembayaran</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;color:#333;border-bottom:1px dashed #e3e3e3;" align="right">{{ paymentNo }}</td>
+                    </tr>
+
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Total Tagihan
+                          <small> (belum termasuk biaya {{ paymentChannel }})</small></td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;border-bottom:1px dashed #e3e3e3;" align="right">Rp. {{ nominal }}</td>
+                    </tr>
+
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Batas Waktu</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;color:#333;border-bottom:1px dashed #e3e3e3;" align="right">Rp. {{ expired }} </td>
+                    </tr>
+                            <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">No. Referensi</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;color:#333;border-bottom:1px dashed #e3e3e3;" align="right">{{ notransaksi }}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+
+            <p style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:1.5em;margin-top:25px;margin-bottom:25px;" align="left">Informasi Pesanan:</p>
+            <table class="yiv8543789573purchase" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;padding:15px;" bgcolor="#F2F4F6">
+
+              <tr>
+                <td colspan="2" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                  <table class="yiv8543789573purchase_content" width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:0;width:100%;">
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Produk</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;border-bottom:1px dashed #e3e3e3;" align="right">{{ title }}</td>
+                    </tr>
+
+                    <tr>
+                      <td width="30%" class="yiv8543789573purchase_item" style="color:#74787E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;line-height:18px;padding:10px 0;border-bottom:1px dashed #e3e3e3;">Harga</td>
+                      <td class="yiv8543789573align-right" width="70%" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:14px;color:#333;border-bottom:1px dashed #e3e3e3;" align="right">Rp. {{ nominal }}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+                    <table class="yiv8543789573discount" align="center" width="100%" cellpadding="0" cellspacing="0" style="border:1px dashed red;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0;padding:15px;width:100%;" bgcolor="#f2dede">
+          <tr>
+            <td align="left" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+              <p style="font-size:12px;">
+                <strong>CARA MELAKUKAN PEMBAYARAN:</strong>
+                <ol>
+                <li style="font-size:13px;">Datang ke <b>{{ paymentChannel }}</b> terdekat</li>
+                <li style="font-size:13px;">Lakukan pembayaran ke kasir dengan menyebutkan: <b>PEMBAYARAN PLASAMALL & KODE PEMBAYARAN {{ paymentNo }}</b></li>
+                <li style="font-size:13px;">Bayar sesuai jumlah tagihan Anda, yaitu <b>Rp. {{ nominal }}</b> ( belum termasuk biaya {{ paymentChannel }} )</li>
+                <li style="font-size:13px;">Terima dan simpan struk pembayaran Anda.</li>
+                <li style="font-size:13px;">Pembayaran selesai.</li>
+                 </ol>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+
+</td>
+</tr>
+<tr>
+</table>
+</td>
+</tr>
+
+<tr>
+    <td style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;background:#1a2eb0;">
+        <table class="yiv8543789573email-footer" align="center" width="570" cellpadding="0" cellspacing="0" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;margin:0 auto;padding:0;text-align:center;width:570px;">
+            <tr>
+                <td class="yiv8543789573content-cell" align="center" style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;padding:35px;">
+                    <p class="yiv8543789573sub yiv8543789573align-center" style="color:#AEAEAE;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:12px;line-height:1.5em;margin-top:0;" align="center">
+                        Email ini dikirim secara otomatis oleh sistem, mohon untuk tidak membalas email ini.<br><br>
+                    </p>
+                    <p class="yiv8543789573sub yiv8543789573align-center" style="color:#AEAEAE;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:12px;line-height:1.5em;margin-top:0;" align="center">© 2021 mediabelajarku.com. All rights reserved.</p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+        </div>
+    </div>
+</body>
+</html>

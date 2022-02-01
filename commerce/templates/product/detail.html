@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %}
+ {{ product.name }}
+{% endblock %}
+
+
+{% block content %}
+<!--Section: Block Content-->
+<div class="container-fluid" style="margin-top:20px">
+    <section class="mb-5">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div id="mdb-lightbox-ui"></div>
+          <div class="mdb-lightbox">
+            <div class="row product-gallery mx-1">
+              <div class="col-12 mb-0">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %} {% static 'img/no_image.png' %}{% endif %}" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h4>{{ product.name }}</h4>
+          <p class="mb-2 text-muted text-uppercase small">{{ product.category }}</p>
+          <p class="starability-result" data-rating="{{ rating_produk }}">
+
+          </p>
+          <p><span class="mr-1"><strong>Rp {{ product.price }}</strong></span></p>
+          <p class="pt-1">{{ product.description }}</p>
+
+          <hr>
+          <div class="table-responsive mb-2">
+              <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                   {{ cart_product_form }}
+                   {% csrf_token %}
+                   <input class="btn btn-primary" type="submit" value="Add to cart">
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--Section: Block Content-->
+</div>
+
+
+<div class="container-fluid">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" id="tab-1" data-toggle="tab" role="tab" href="#content-1" aria-selected="true" aria-controls="content-1">
+                Description
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-2" data-toggle="tab" role="tab" href="#content-2" aria-selected="false" aria-controls="content-2">
+                {% with reviewed_product.count as total_comments %}
+                    {{ total_comments }} review {{ total_comments|pluralize }}
+                {% endwith %}
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<main role="main" class="container-fluid">
+  <div class="container-full">
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="content-1" aria-labelledby="tab-1" role="tabpanel">
+          {{ product.description|linebreaks }}
+      </div>
+      <div class="tab-pane fade" id="content-2" aria-labelledby="tab-2" role="tabpanel">
+   <div class="container-fluid">
+    <h2>Review Customer</h2>
+        {% for reviewed in reviewed_product %}
+            <div class="card" style="width: 58rem;">
+                <div class="card-body">
+                    <div class="">
+                     <h5><b>by {{ reviewed.nama }}</b></h5>
+                     <p>
+                         {{ reviewed.created }}
+                     </p>
+                 </div>
+                 <div>
+                       <p class="starability-result" data-rating="{{ reviewed.rating }}"></p>
+                 </div>
+                <div class="">
+                    <p>{{ reviewed.comment|linebreaks }}</p>
+                </div>
+                </div>
+            </div>
+         {% empty %}
+            <p>Tidak ada reviewed.</p>
+         {% endfor %}
+
+    <div class="col-4">
+        <h3>Form Review Produk</h3>
+       <form method="post">
+           {% csrf_token %}
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                      <td>{% bootstrap_form reviewed_form %}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Rating
+                            <fieldset class="starability-basic">
+                              <input type="radio" id="rate1" name="rating" value="1" />
+                              <label for="rate1">1 star.</label>
+                              <input type="radio" id="rate2" name="rating" value="2" />
+                              <label for="rate2">2 stars.</label>
+                              <input type="radio" id="rate3" name="rating" value="3" />
+                              <label for="rate3">3 stars.</label>
+                              <input type="radio" id="rate4" name="rating" value="4" />
+                              <label for="rate4">4 stars.</label>
+                              <input type="radio" id="rate5" name="rating" value="5" />
+                              <label for="rate5">5 stars.</label>
+                              <span class="starability-focus-ring"></span>
+                            </fieldset>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <p><input class="btn btn-primary" type="submit" value="Kirim"></p>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+       </form>
+        </div>
+
+    </div>
+   </div>
+  </div>
+  </div>
+</main>
+
+
+
+{% endblock %}

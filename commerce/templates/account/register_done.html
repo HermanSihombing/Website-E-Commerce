@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+    <h1>Selamat Datang, {{ new_user.first_name }}!</h1>
+    <p>Account telah berhasil dibuat, Silahkan <a
+    href="{% url 'login' %}">log in</a>.</p>
+{% endblock %}

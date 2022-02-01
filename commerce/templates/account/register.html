@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block title %}
+    Create an account
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="col-6">
+    <h1>Membuat akun baru</h1>
+    <h5>Isi form dibawah ini:</h5>
+    <form method="post">
+        {% bootstrap_form user_form %}
+        {% csrf_token %}
+        <p><input class="btn btn-primary" type="submit" value="Buat akun baru"></p>
+    </form>
+    </section>
+</div>
+{% endblock %}

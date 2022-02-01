@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block title %}
+    Log-in
+{% endblock %}
+
+{% block content %}
+<div class="col-3">
+    <h1>Log-in</h1>
+
+    {% if form.errors %}
+        <p>Username atau password salah. Silahkan cek kembali username atau password anda.</p>
+    {% else %}
+        <p>Silahkan Login dibawah ini :</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% bootstrap_form form %}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <p><input class="btn btn-primary" type="submit" value="Log in"></p>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Pembayaran
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex" id="wrapper">
+        <div class="container-fluid col-md-9">
+
+ <div class="container">
+
+    <div class="row mb-5">
+         <div class="col-md-6 col-sm-12 col-12 d-block" style="padding: 30px 0 30px 10px;">
+             <div id="product">
+
+     <!--             Metode Pembayaran     -->
+         <div class="card" style="border:none;">
+
+                 <div class="card-header ">
+                     <h4>Pilih Metode Pembayaran</h4>
+                 </div>
+
+
+             <div class="accordion">
+                 <div class="card">
+                     <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#cBank">
+                         <h5 class="mb-0">Transfer Bank</h5>
+                            <img src="https://sandbox.ipaymu.com/asset/images/bank.png">
+                     </div>
+                     <div id="cBank" aria-labelledby="headingOne">
+                         <div class="card-body">
+                             <form method="POST" action="{% url 'proses-pembayaran' %}">
+                             {% csrf_token %}
+                                 <p>Anda dapat melakukan pembayaran dengan cara Transfer melalui ATM, Mobile Banking atau Internet Banking dari seluruh bank
+                                     di Indonesia yang terhubung dengan jaringan ATM Besama, Prima dan ALTO. Number</p>
+                                 <label>Pembayaran melalui: </label>
+                              <div class="row">
+                                  <div class="col-md-4 col-6">
+                                      <div class="form-check form-check-inline mb-3">
+                                        <input class="form-check-input" type="radio" name="type" value="1" checked>
+                                        <label class="form-check-label">
+                                            <img src="https://sandbox.ipaymu.com/asset/images/bca.png" width="80px"></label>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-4 col-6">
+                                     <div class="form-check form-check-inline mb-3">
+                                     <input class="form-check-input" type="radio" name="type" value="2" >
+                                     <label class="form-check-label">
+                                         <img src="https://sandbox.ipaymu.com/asset/images/mandiri.png" width="80px"></label>
+                                     </div>
+                                  </div>
+
+                                  <div class="col-md-4 col-6">
+                                     <div class="form-check form-check-inline mb-3">
+                                        <input class="form-check-input" type="radio" name="type" value="3" >
+                                        <label class="form-check-label">
+                                        <img src="https://sandbox.ipaymu.com/asset/images/bni.png" width="80px"></label>
+                                     </div>
+                                  </div>
+
+                                  <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="type" value="4" >
+                                <label class="form-check-label">
+                                    <img src="https://sandbox.ipaymu.com/asset/images/niaga.png" width="100px"></label>
+                             </div>
+                         </div>
+
+                              </div>
+                         </div>
+                     </div>
+                 </div>
+
+         <div class="card">
+             <div class="card-header" id="headingVa" data-toggle="collapse" data-target="#cVa">
+                 <h5 class="mb-0">Virtual Account (VA)</h5>
+                 <img src="https://sandbox.ipaymu.com/asset/images/bank.png">
+             </div>
+
+             <div id="cVa" aria-labelledby="headingVa">
+                 <div class="card-body">
+                         <p>Anda dapat melakukan pembayaran ke Virtual Account melalui ATM, Mobile Banking atau Internet Banking.</p>
+                         <label>Pembayaran melalui: </label>
+
+                         <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                             <input class="form-check-input" type="radio" name="type" value="5" >
+                             <label class="form-check-label">
+                                 <img src="https://sandbox.ipaymu.com/asset/images/mandiri.png" width="80px"></label>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="type" value="6" >
+                                <label class="form-check-label">
+                                <img src="https://sandbox.ipaymu.com/asset/images/bni.png" width="80px"></label>
+                             </div>
+                         </div>
+
+                        <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="type" value="7" >
+                                <label class="form-check-label">
+                                    <img src="https://sandbox.ipaymu.com/asset/images/niaga.png" width="100px"></label>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input id="artagraha" class="form-check-input" type="radio" name="type" value="8" >
+                                <label for="artagraha" class="form-check-label">
+                                    <img src="https://sandbox.ipaymu.com/asset/images/arthagraha.png" width="80px"></label>
+                             </div>
+                         </div>
+
+                        <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="type" value="9">
+                                    <label class="form-check-label">
+                                        <img src="https://sandbox.ipaymu.com/asset/images/bpd-bali-long-2.png" alt="ipaymu-bpd-bali" style="width:9em; height:auto;"></label>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4 col-6">
+                             <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="type" value="10">
+                                <label class="form-check-label">
+                                    <img src="https://sandbox.ipaymu.com/asset/images/bmi.png" alt="ipaymu-bank-muamalat" style="width:8em;"></label>
+                             </div>
+                         </div>
+                 </div>
+                    </div>
+
+                 </div>
+             </div>
+
+
+
+             <div class="card">
+                 <div class="card-header" data-toggle="collapse" data-target="#cStore">
+                     <h5 class="mb-0">Convenience Store</h5>
+                    <img src="https://sandbox.ipaymu.com/asset/images/cstore.png" style="width:70%;>
+                 </div>
+
+                 <div id="cStore" aria-labelledby="headingOne">
+                 <div class="card-body">
+                        <p>Anda dapat melakukan pembayaran Alfamart terdekat di kota Anda.</p>
+                         <div class="form-group mb-4">
+                            <label>Pembayaran melalui</label>
+                             <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="type" value="11">
+                                    <label class="form-check-label">
+                                        <img src="https://sandbox.ipaymu.com/asset/images/alfamart.png" width="90px">
+                                    </label>
+                             </div>
+
+                         </div>
+                 </div>
+                 </div>
+             </div>
+
+
+             <div class="card">
+                 <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#cQris">
+                     <h5 class="mb-0"><b>QRIS (Quick Response Code Indonesian Standard)</b></h5>
+
+                 </div>
+
+                 <div id="qris" aria-labelledby="headingOne">
+                 <div class="card-body">
+                        <p>Anda dapat melakukan memakai QR code.</p>
+                         <div class="form-group mb-4">
+                            <label>Pembayaran melalui</label>
+                             <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="type" value="13">
+                                    <label class="form-check-label">
+                                        <img src="https://sandbox.ipaymu.com/asset/images/qris-app.png" style="width:120%; max-width:250px; height:auto;" alt="ipaymu qris, bayar dengan ovo dana grab bca, bayar dengan qr, qris bpd bali">
+                                    </label>
+                             </div>
+
+
+                         </div>
+                 </div>
+                 </div>
+
+             </div>
+
+           </div>
+
+             </div>
+     </div>
+
+
+<!--                  End Code Metode Pembayaran-->
+
+    <div class="col-md-6 col-12">
+     <div class="col-md-12 pt-3">
+         <div class="card-header">
+             <h5 class="mb-0">
+                 <span class="total-text">Total Pembayaran</span>
+                 <span class="total-amount badge badge-primary badge-pill">Rp. {{ cart.get_total_price_after_discount }}</span>
+             </h5>
+         </div>
+
+         <div id="cProduct" class="collapse show" data-parent="#product">
+             <div class="card-body" style="padding: 0;">
+                 <ul class="list-group list-group-flush">
+                     <li class="list-group-item"><h6>Keterangan Produk</h6>
+                        {% for item in cart %}
+                        {% with product=item.product %}
+                             <small class="d-block text-justify mb-1">{{ product.name }}</small>
+                             <small>{{ item.quantity }} x <sup>Rp. </sup> {{ item.price }}</small>
+                             <span style="float: right;"><sup>Rp. </sup> {{ item.total_price }}</span>
+                        {% endwith %}
+                        {% endfor %}
+                         <hr/>
+                         <small>Diskon : {{ cart.kupon.diskon }} %</small>
+                         <span style="float: right;"><sup>Rp. </sup> {{ cart.get_disc }}</span>
+
+                     </li>
+                 </ul>
+             </div>
+         </div>
+
+                  <div class="card mt-3 mb-3" style="border:none;">
+                     <div class="card" style="border-color:#1a2eb0;">
+
+                             <div class="card-header dividen">
+                                 <h3>Isi Informasi Lengkap Anda</h3>
+                             </div>
+
+                     </div>
+
+                      <div class="form-group mt-3">
+                          <label><b>Nama Lengkap sesuai KTP<span class="text-danger">* </span></b></label>
+                        <input class="form-control form-control-sm" type="text" name="nama" required>
+                      </div>
+
+                      <div class="form-group">
+                          <label><b>Alamat Email<span class="text-danger">* </span></b></label>
+                            <input class="form-control form-control-sm" type="email" name="email" required>
+                          <small id="emailHelp" class="form-text text-muted">Gunakan Email yang masih <strong>Aktif</strong>. </small>
+                          <small class="form-text text-muted">Pemberitahuan pembayaran akan dikirim ke <strong>email</strong> ini.</small>
+                      </div>
+
+                      <div class="form-group">
+                          <label><b>No Hp/Whatsapp<span class="text-danger">* </span></b></label>
+                          <input class="form-control form-control-sm" type="number" name="nohp" required>
+                      </div>
+
+                      <div class="form-group">
+                          <label><b>Alamat<span class="text-danger">* </span></b></label>
+                          <input class="form-control form-control-sm" type="text" name="alamat" id="alamat" required>
+                      </div>
+
+                      <div class="form-group">
+                          <label><b>Catatan<span class="text-danger">* </span></b></label>
+                          <textarea class="form-control" name="note" id="note" rows="3" required></textarea>
+                      </div>
+
+
+                      <div class="mt-3 pt-4">
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                  {{ pesan }}
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                        </div>
+
+                  </div>
+                <button type="submit" class="btn btn-success btn-block">BAYAR SEKARANG</button>
+
+            </form>
+
+            <div class="card mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Sistem Pembayaran</h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><span class="text-danger">* </span>Catatan : </h6>
+                    <p><b>Setiap pembayaran akan diproses menggunakan Ipaymu Payment Gateway.
+                    Mohon selesaikan pembayaran maksimal dalam 1x24 jam.</b></p>
+
+              <img src="https://ipaymu.com/wp-content/themes/ipaymu_v2/assets/img/logo/ipaymu_logo_blue_240x60.png" class="img-fluid float-right" width="60%" alt="logo_ipaymu">
+            </div>
+            </div>
+     </div>
+
+    </div>
+ </div>
+
+ </div>
+     </div>
+    </div>
+
+
+        <script src="https://sandbox.ipaymu.com/asset/plugins/popper/popper.min.js"></script>
+        <script src="https://sandbox.ipaymu.com/asset/plugins/bootstrap/bootstrap4.min.js"></script>
+        <script src="https://sandbox.ipaymu.com/asset/plugins/fontawesome/all.min.js" ></script>
+        <script src="/asset/plugins/select2/select2.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){$('form').submit(function(){$('button[type=submit]').prop('disabled',true);});$(".select-search").select2({tags:false,placeholder:"-- Select --"});});function copyToClipboard(element){var $temp=$("<input>");$("body").append($temp);$temp.val($(element).html()).select();document.execCommand("copy");$temp.remove();alert('Teks berhasil di Copy');}
+function load_province(channel){$('#cFee').hide();var html;var htmlOther="<option value=''>-- Select --</option>";$('.select-province-'+channel).html("<option id='loading'>Loading ...</option>");$.ajax({url:"https://sandbox.ipaymu.com/area/province",method:"GET",dataType:'json',success:function(data){var i;html="<option value=''>-- Select --</option>";for(i=0;i<data.data.length;i++){html+='<option value="'+data.data[i].id+'" data-title="'+data.data[i].name+'">'+data.data[i].name+'</option>';}
+$('.select-province-'+channel).html(html);$('.select-city-'+channel).html(htmlOther);$('.select-district-'+channel).html(htmlOther);$('.select-village-'+channel).html(htmlOther);}});}
+function select_province(id,channel){$('.select-city-'+channel).html('<option>Loading ...</option>');$('.select-district-'+channel).html('<option>Loading ...</option>');$('.select-village-'+channel).html('<option>Loading ...</option>');$.ajax({url:"https://sandbox.ipaymu.com/area/city/"+id,method:"GET",dataType:'json',success:function(data){var html='';var i;html+='<option value="">-- Select --</option>';var htmlOther="<option value=''>-- Select --</option>";for(i=0;i<data.data.length;i++){html+='<option value="'+data.data[i].id+'" data-title="'+data.data[i].name+'">'+data.data[i].name+'</option>';}
+$('.select-city-'+channel).html(html);$('.select-district-'+channel).html(htmlOther);$('.select-village-'+channel).html(htmlOther);}});}
+function select_city(id,channel){$('.select-district-'+channel).html('<option>Loading ...</option>');$('.select-village-'+channel).html('<option>Loading ...</option>');$.ajax({url:"https://sandbox.ipaymu.com/area/district/"+id,method:"GET",dataType:'json',success:function(data){var html='';var htmlOther="<option value=''>-- Select --</option>";var i;html+='<option value="">-- Select --</option>';for(i=0;i<data.data.length;i++){html+='<option value="'+data.data[i].id+'" data-title="'+data.data[i].name+'">'+data.data[i].name+'</option>';}
+$('.select-district-'+channel).html(html);$('.select-village-'+channel).html(htmlOther);}});}
+function select_district(id,channel){$('.select-village').html('<option>Loading ...</option>');$.ajax({url:"https://sandbox.ipaymu.com/area/village/"+id,method:"GET",dataType:'json',success:function(data){var html='';var i;html+='<option value="">-- Select --</option>';for(i=0;i<data.data.length;i++){html+='<option value="'+data.data[i].id+'" data-post="'+data.data[i].postcode+'" data-title="'+data.data[i].name+'">'+data.data[i].name+'</option>';}
+$('.select-village-'+channel).html(html);}});}
+function getRate(area_id,channel)
+{$('.select-courier-'+channel).html('<option>Loading ...</option>');var url="https://sandbox.ipaymu.com/rate/payment";var postal=$(".select-village-"+channel+" option:selected").attr('data-post');var province=$(".select-province-"+channel+" option:selected").attr('data-title');var city=$(".select-city-"+channel+" option:selected").attr('data-title');var district=$(".select-district-"+channel+" option:selected").attr('data-title');var village=$(".select-village-"+channel+" option:selected").attr('data-title');var sid="97464536-4309-42B7-81AE-31AC69C6CA97";$.ajax({url:url,type:"POST",data:{_token:$('meta[name="csrf-token"]').attr('content'),sid:sid,area_id:area_id,postal:postal,province:province,city:city,district:district,village:village},success:function(data)
+{var html='';var i;html+='<option value="">-- Select --</option>';if(data.status==200){for(i=0;i<data.data.logistic.length;i++){html+='<option value="'+data.data.logistic[i].name+'" data-price="'+data.data.logistic[i].price_rp+'" data-day="'+data.data.logistic[i].max_day+'">'+data.data.logistic[i].name+'</option>';}}
+$('.select-courier-'+channel).html(html);console.log('Satus:'+data.status);},error:function(jqXHR,textStatus,errorThrown){console.log('error');}});}
+function select_courier(channel){var name=$(".select-courier-"+channel+" option:selected").text();var price=$(".select-courier-"+channel+" option:selected").attr('data-price');var day=$(".select-courier-"+channel+" option:selected").attr('data-day');$('#cFee').show();$('#fee-title').html("Biaya pengiriman");$('#fee-desc').html(name+' ('+day+' Hari)');$('#fee-val').html(price);}
+function showModalVoucher()
+{$('#modalVoucher').modal('show');$('#voucherError').hide();$("input[name='voucher_code']").focus();}
+function voucherCheck()
+{var cart_id="97464536-4309-42B7-81AE-31AC69C6CA97";var voucher_code=$("input[name='voucher_code']").val();$('#voucherError').hide();$('#btnVoucherCheck').addClass('disabled');$('#cDiscount').hide();$.ajax({url:"https://sandbox.ipaymu.com/voucher/check",type:"POST",data:{'_token':$('meta[name="csrf-token"]').attr('content'),'cart_id':cart_id,'voucher_code':voucher_code},success:function(data)
+{if(data.Status==200){var amount="100000";var discount=data.Data.Value;var netAmount=amount-discount;$('#cDiscount').show();$("input[name='voucher_code']").prop('disabled','disabled');$("input[name='voucher_code']").prop('readonly',true);$("input[name='voucher_val']").val(voucher_code);$('#discount-title').text('Viralmu Voucher '+voucher_code);$('#discount-val').html("- <sup>Rp.</sup> "+data.Data.ValueRp);$('.total-amount').text(formatRupiah(netAmount,'Rp. '));$('#rBtnVoucher').html('<button class="btn btn-secondary btn-block btn-sm" onclick="return changeVoucher()">Reset Voucher</button>');$('#modalVoucher').modal('hide');}else{$('#voucherError').show();$('#voucherErrorText').text(data.Message)
+$("input[name='voucher_val']").val('');}
+$('#btnVoucherCheck').removeClass('disabled');},error:function(jqXHR,textStatus,errorThrown)
+{$('#voucherError').show();$('#voucherErrorText').text(data.Message)
+$('#btnVoucherCheck').removeClass('disabled');}});}
+function changeVoucher()
+{var amount="100000";$('#cDiscount').hide();$("input[name='voucher_code']").prop('disabled',false);$("input[name='voucher_code']").prop('readonly',false);$("input[name='voucher_code']").val('');$("input[name='voucher_val']").val('');$('#discount-title').html('');$('#discount-val').html('');$('.total-amount').text(formatRupiah(amount,'Rp. '));$('#rBtnVoucher').html('<button class="btn btn-success btn-block btn-sm" onclick="return showModalVoucher()">Masukan Viralmu Voucher</button>');}
+function formatRupiah(angka,prefix){if(angka>999){var number_string=angka.toString().replace(/[^,\d]/g,'').toString(),split=number_string.split(','),sisa=split[0].length%3,rupiah=split[0].substr(0,sisa),ribuan=split[0].substr(sisa).match(/\d{3}/gi);if(ribuan){separator=sisa?'.':'';rupiah+=separator+ribuan.join('.');}
+rupiah=split[1]!=undefined?rupiah+','+split[1]:rupiah;return prefix==undefined?rupiah:(rupiah?'Rp. '+rupiah:'');}else{return prefix+" "+angka;}}</script> <script>$('#cBank').on('show.bs.collapse',function(){});</script> <script>$('#cVa').on('show.bs.collapse',function(){});</script> <script>$('#cStore').on('show.bs.collapse',function(){});</script> <script>$(document).ready(function(){setTimeout(function(){loadPostalCode();},2000);$('#cod').on('hidden.bs.collapse',function(){$('#cFee').hide();$('#fee-title').html('');$('#fee-desc').html('');$('#fee-val').html('');$("#postal_code").val('').trigger('change');});});function loadPostalCode(){var html;$('#postal_code').html("<option id='loading' selected>Loading ...</option>");var cod_province="";var cod_city="";var area="COD";var url="https://sandbox.ipaymu.com/cod/customarea";$.ajax({url:url,type:"POST",data:{_token:$('meta[name="csrf-token"]').attr('content'),area:area,cod_province:cod_province,cod_city:cod_city},success:function(data)
+{var i;html+="<option value=''>-- Select --</option>";for(i=0;i<data.length;i++){html+='<option value="'+data[i].postalcode+'" data-city="'+data[i].city_name+'" data-postalname="'+data[i].postal_name+'">'+data[i].province+' - '+data[i].district+' - '+data[i].village+' ('+data[i].postalcode+')</option>';}
+$('#postal_code').html(html);},error:function(jqXHR,textStatus,errorThrown){console.log('error');}});}
+function selectPostalCode(val){var tcity=$("#postal_code option:selected").attr('data-city');var tpostalname=$("#postal_code option:selected").attr('data-postalname');var fpostalcode="80361";var total_weight="0.3";$('[name="postal_city"]').val(tcity);$('[name="postal_name"]').val(tpostalname);$.ajax({url:"https://sandbox.ipaymu.com/cod/getshippingfee/"+fpostalcode+"/"+val+"/"+total_weight,method:"GET",dataType:'JSON',success:function(data){$('#cFee').show();$('#fee-title').html('Pengiriman dari '+data.fpostalname+' ke '+tpostalname+'</b>');$('#fee-desc').html('Berat Total '+total_weight+' Kg');$('#fee-val').html('Rp. '+data.price_rp);console.log('From postal name: '+data.fpostalname);console.log('To postal name: '+data.tpostalname);},error:function(jqXHR,textStatus,errorThrown){console.log('error');}});}
+function selectCourier(value)
+{var val=value.toLowerCase()
+if(val=='jne'){$('.jne-form').show();$('.rpx-form').hide();}else{$('.jne-form').hide();$('.rpx-form').show();}}
+$("#jne_destination_area").select2({placeholder:"-- Select --",allowClear:true,ajax:{url:"https://sandbox.ipaymu.com/jne/destination",dataType:'json',data:function(params){var query={search:params.term||'',page:params.page||1}
+return query;},cache:true}});function selectJneArea(val)
+{$.ajax({url:"https://sandbox.ipaymu.com/jne/ratecod",method:"POST",data:{_token:$('meta[name="csrf-token"]').attr('content'),destination_area:val,sid:"97464536-4309-42B7-81AE-31AC69C6CA97"},success:function(data){$('#cFee').show();$('#fee-title').html('<small>Pengiriman dari '+data.data.origin_name+' ke '+data.data.destination_name+'</b></small>');$('#fee-desc').html('Berat Total '+data.data.total_weight+' kg ('+data.data.etd_thru+' hari)');$('#fee-val').html('<sup>Rp. </sup>'+data.data.price_rp);},error:function(jqXHR,textStatus,errorThrown){console.log('error get service type jne');}});}
+function selectJneAreaOld(val)
+{$('#jne_service_type').html("<option id='loading' selected>Loading ...</option>");$.ajax({url:"https://sandbox.ipaymu.com/jne/rate",method:"POST",data:{_token:$('meta[name="csrf-token"]').attr('content'),destination_area:val,sid:"97464536-4309-42B7-81AE-31AC69C6CA97",is_cod:'true'},success:function(data){var i;var html="<option value=''>-- Pilih --</option>";for(i=0;i<data.data.length;i++){html+='<option value="'+data.data[i].service_code+'" >'+data.data[i].service_display+' (Rp. '+data.data[i].price_rp+' | '+data.data[i].etd_thru+' hari)</option>';}
+$('#jne_service_type').html(html);},error:function(jqXHR,textStatus,errorThrown){console.log('error get service type jne');}});}
+</script>
+
+        </div>
+    </div>
+
+{% endblock %}

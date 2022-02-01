@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% block title %}
+ {% if category %}{{ catname }}{% else %}Products List{% endif %}
+{% endblock title %}
+
+{% endblock head %}
+
+
+
+{% block content %}
+
+<div class="latest-products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <ul class="nav nav-tabs">
+      			<li class="nav-link">
+        				<a href="{% url 'product:product_list' %}">All Product</a>
+      			</li>
+      			{% for c in category %}
+                <li class="nav-item" {% if category.slug == c.slug %}class="selected"
+                    {% endif %}>
+        				<a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+ 			 {% endfor %}
+   		 </ul>
+
+            </div>
+          </div>
+
+          <!-- script 1 produk -->
+          {% for product in products %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""></a>
+              <div class="down-content">
+                <a href="{{ product.get_absolute_url }}"><h4>{{ product.name }}</h4></a>
+                <h6>{{ product.price }}</h6>
+                <p>{{ product.description|slice:100 }}...</p>
+
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (24)</span>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- end script -->
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
