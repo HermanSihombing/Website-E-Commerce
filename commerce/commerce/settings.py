@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-9312i6+(m_**$n_0b3vv$-hnqu@1!sw2(2odg)dt6o!o81v36k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '34.69.108.249']
 
 
 # Application definition
@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'kupon.apps.KuponConfig',
     'payment.apps.PaymentConfig',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,7 +138,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 LOGIN_REDIRECT_URL = '/'
 
